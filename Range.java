@@ -25,8 +25,19 @@ public class Range implements IntegerSequence{
   public boolean hasNext(){
 //does this sequence have more elements?
 
-    return current < end;
+    return current <= end;
 
   }
 
+  public int next(){
+//has a throw NoSuchElementException
+//returns current value of sequence and advances
+
+    if (current > end){
+      throw new NoSuchElementException("There are no more values");
+    }
+    current++;
+    return current-1;
+
+  }
 }
