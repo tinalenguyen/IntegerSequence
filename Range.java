@@ -13,7 +13,14 @@ public class Range implements IntegerSequence{
 
     current = start;
 
+  }
+
+  public int length() {
+//returns total length of sequence
+
+    return end-start+1;
 
   }
 
-    }
+  
+}
