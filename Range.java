@@ -8,6 +8,12 @@ public class Range implements IntegerSequence{
     this.current = start;
       }
 
-  public
+  public void reset(){
+//start over from the start of the sequence
+
+    current = start;
+
+
+  }
 
     }
