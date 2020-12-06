@@ -22,5 +22,11 @@ public class Range implements IntegerSequence{
 
   }
 
-  
+  public boolean hasNext(){
+//does this sequence have more elements?
+
+    return current < end;
+
+  }
+
 }
