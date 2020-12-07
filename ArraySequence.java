@@ -22,5 +22,21 @@ public class ArraySequence implements IntegerSequence{
       return true;
     }
 
+    public int next(){
+      if (currentIndex > data.length){
+        throw new NoSuchElementException("There are no more values");
+      }
+      currentIndex++;
+      return data[currentIndex-1];
+    }
 
+    public int length(){
+        return data.length;
+
+    }
+
+    public void reset(){
+        currentIndex = 0;
+
+    }
 }
