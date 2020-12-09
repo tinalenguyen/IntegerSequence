@@ -3,9 +3,12 @@ public class Range implements IntegerSequence{
   private int start,end,current;
 
   public Range(int start, int end){
+    current = start;
     this.start = start;
     this.end = end;
-    this.current = start;
+    if (start>end) {
+      throw new IllegalArgumentException("Start can't be larger than the end");
+    }
       }
 
   public void reset(){
@@ -36,8 +39,9 @@ public class Range implements IntegerSequence{
     if (current > end){
       throw new NoSuchElementException("There are no more values");
     }
+    else {
     current++;
     return current-1;
-
+  }
   }
 }
