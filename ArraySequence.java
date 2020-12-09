@@ -5,27 +5,29 @@ public class ArraySequence implements IntegerSequence{
 
   /*Construct the sequence by copying values from the other array into the data array*/
   public ArraySequence(int [] other){
+      reset();
       data = new int[other.length];
       for (int i = 0 ; i < other.length ; i++){
 
         data[i] = other[i];
 
       }
-      currentIndex = 0;
+
 
     }
 
     //Postcondition: The otherseq will be reset.
     //This constructor will copy ALL values of the `otherseq` into the data array.
     public ArraySequence(IntegerSequence otherseq){
-      otherseq.reset();
+      reset();
       int i = 0;
       data = new int[otherseq.length()];
+      otherseq.reset();
       while (otherseq.hasNext()) {
         data[i] = otherseq.next();
         i++;
-      }
-
+        }
+        otherseq.reset();
     }
 
     public boolean hasNext(){
@@ -36,12 +38,14 @@ public class ArraySequence implements IntegerSequence{
     }
 
     public int next(){
-      if (currentIndex >= data.length){
-        throw new NoSuchElementException("There are no more values");
+      if (hasNext()==false){
+        throw new NoSuchElementException();
       }
+      else {
       currentIndex++;
       return data[currentIndex-1];
     }
+  }
 
     public int length(){
         return data.length;
